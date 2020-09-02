@@ -1,0 +1,48 @@
+#chatpage-container {
+    display: grid;
+    grid-template-columns: minmax(295px, 24%) 76%;
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+#contact-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #0076be;
+    overflow-y: scroll;
+}
+
+#chat-container {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 7fr 4fr;
+    font-family: "Roboto", sans-serif;
+    max-height: 100vh;
+}
+
+#conversation-container {
+    padding: 28px 36px 0 36px;
+    overflow-y: scroll;
+}
+
+#input-control {
+    margin: 0;
+    padding: 0 0 0 20px;
+    border-top: solid 1px #dddddd;
+    border-bottom: solid 1px #dddddd;
+}
+
+#message-area {
+    padding: 20px 15px 15px 32px;
+    border: none;
+    outline: none;
+    resize: none;
+    width: 95%;
+    height: calc(80% - 50px);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    text-justify: inter-word;
+}

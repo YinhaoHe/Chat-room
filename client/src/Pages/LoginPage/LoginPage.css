@@ -1,0 +1,33 @@
+#login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: calc(100vw + 0px);
+    height: calc(100vh + 0px);
+}
+
+#login-page-form {
+    width: 43%;
+}
+
+#login-page-form-inputs {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 45px;
+}
+
+#login-form-buttons {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+#logo {
+    position: absolute;
+    top: 93%;
+    width: 20px;
+}
