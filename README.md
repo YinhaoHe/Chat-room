@@ -5,7 +5,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Running the Application
 1. Install Node.js
 2. Download/clone this repository
-3. Open the ```Chat-room``` folder
+3. Open the ```Chat-room``` folder 
     - Go to the ```client``` folder and type ```yarn install``` to gather all the necessary packages 
     - Go to the ```server``` folder and type ```npm install``` to gather all the necessary packages
 4. Follow this [tutorial](https://fullstackopen.com/en/part3/saving_data_to_mongo_db) to set up your MongoDB database
