@@ -1,18 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import socket from '../Socket/Socket';
+import socket from "../Socket/Socket";
 
-import AttachmentIcon from '@material-ui/icons/Attachment';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
+import AttachmentIcon from "@material-ui/icons/Attachment";
+import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
 
 let useStyles = makeStyles(() => ({
   input: {
-    display: 'none',
-  }
+    display: "none",
+  },
 }));
 
-export default function AttachButton({ id, name, targetUser, setErrorMessage }) {
+export default function AttachButton({
+  id,
+  name,
+  targetUser,
+  setErrorMessage,
+}) {
   let classes = useStyles();
   return (
     <>
@@ -20,13 +25,12 @@ export default function AttachButton({ id, name, targetUser, setErrorMessage }) 
         className={classes.input}
         id="attach-button"
         type="file"
-        onChange={event => attachFile(event, id, name, targetUser, setErrorMessage)}
+        onChange={(event) =>
+          attachFile(event, id, name, targetUser, setErrorMessage)
+        }
       />
       <label htmlFor="attach-button">
-        <IconButton 
-          aria-label="Attach a file"
-          component="span"
-        >
+        <IconButton aria-label="Attach a file" component="span">
           <AttachmentIcon />
         </IconButton>
       </label>
@@ -35,23 +39,23 @@ export default function AttachButton({ id, name, targetUser, setErrorMessage }) 
 }
 
 function attachFile(event, id, name, targetUser, setErrorMessage) {
-  if (targetUser !== '') {
+  if (targetUser !== "") {
     let reader = new FileReader();
-    reader.onload = function() {
-      let now = new Date().toLocaleString('en-US', {
-        dateStyle: 'short',
-        timeStyle: 'medium',
+    reader.onload = function () {
+      let now = new Date().toLocaleString("en-US", {
+        dateStyle: "short",
+        timeStyle: "medium",
       });
-      socket.emit('sendMessage', {
-          ids: [id, targetUser],
-          senderName: name,
-          content: reader.result,
-          time: now,
-          type: 'application/octet-stream'
+      socket.emit("sendMessage", {
+        ids: [id, targetUser],
+        senderName: name,
+        content: reader.result,
+        time: now,
+        type: "application/octet-stream",
       });
-    }
+    };
     reader.readAsDataURL(event.target.files[0]);
   } else {
-    setErrorMessage('Please Start a Conversation.');
+    setErrorMessage("Please Start a Conversation.");
   }
 }
